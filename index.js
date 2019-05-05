@@ -49,7 +49,6 @@ class Monitor {
     }).catch(e => {
       console.log(e)
     })
-    console.log(objects)
     if(objects) {
       this.nikeshoes = JSON.parse(localStorage.getItem('nikeshoes'))
       objects.forEach(item => {
