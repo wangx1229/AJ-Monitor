@@ -50,7 +50,7 @@ class Monitor {
       console.log(e)
     })
     if(objects) {
-      this.nikeshoes = JSON.parse(localStorage.getItem('nikeshoes'))
+      this.nikeshoes = JSON.parse(localStorage.getItem('nikeshoes')) || {}
       objects.forEach(item => {
         if (!this.nikeshoes[item.id]) {
           this.nikeshoes[item.id] = true
