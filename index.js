@@ -44,14 +44,15 @@ class Monitor {
     setTimeout(this.fetchData.bind(this), this.time)
   }
   async fetchData() {
-    const {objects} = await fetch(this.url).then(response => {
+    const res = await fetch(this.url).then(response => {
       return response.json()
     }).catch(e => {
       console.log(e)
+		this.init()
     })
-    if(objects) {
+    if(res.objects) {
       this.nikeshoes = JSON.parse(localStorage.getItem('nikeshoes')) || {}
-      objects.forEach(item => {
+      res.objects.forEach(item => {
         if (!this.nikeshoes[item.id]) {
           this.nikeshoes[item.id] = true
           window.open(item.publishedContent.properties.coverCard.properties.portraitURL)
